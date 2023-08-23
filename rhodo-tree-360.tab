@@ -1,0 +1,130 @@
+# time calibrated phylogenetic trees
+# data saved on: 2023-06-06T17:03:23-03:00
+tree	node	parent	age	taxon
+vireya	0	-1	16590000	
+vireya	1	0	0	Rhododendron maddenii
+vireya	2	0	12300000	
+vireya	3	2	6163720	
+vireya	4	3	0	Rhododendron santapaui
+vireya	5	3	0	Rhododendron vaccinioides
+vireya	6	2	11953570	
+vireya	7	6	6374666	
+vireya	8	7	3162466	
+vireya	9	8	0	Rhododendron euonumifolium
+vireya	10	8	0	Rhododendron kawakamii
+vireya	11	7	3344256	
+vireya	12	11	0	Rhododendron retusum
+vireya	13	11	1730438	
+vireya	14	13	0	Rhododendron quadrasianum
+vireya	15	13	886657	
+vireya	16	15	0	Rhododendron meliphagidum
+vireya	17	15	449331	
+vireya	18	17	0	Rhododendron ericoides
+vireya	19	17	0	Rhododendron nanophyton
+vireya	20	6	10883408	
+vireya	21	20	5575474	
+vireya	22	21	0	Rhododendron citrinum
+vireya	23	21	2771445	
+vireya	24	23	0	Rhododendron album
+vireya	25	23	1384008	
+vireya	26	25	0	Rhododendron aequabile
+vireya	27	25	0	Rhododendron sumatranum
+vireya	28	20	10686183	
+vireya	29	28	5439989	
+vireya	30	29	0	Rhododendron acuminatum
+vireya	31	29	0	Rhododendron malayanum
+vireya	32	28	10490672	
+vireya	33	32	6932042	
+vireya	34	33	3872477	
+vireya	35	34	1941384	
+vireya	36	35	0	Rhododendron rarilepidotum
+vireya	37	35	962117	
+vireya	38	37	0	Rhododendron javanicum
+vireya	39	37	0	Rhododendron robinsonii
+vireya	40	34	2107739	
+vireya	41	40	0	Rhododendron burttii
+vireya	42	40	1142193	
+vireya	43	42	0	Rhododendron sarcodes
+vireya	44	42	600252	
+vireya	45	44	0	Rhododendron alborugosum
+vireya	46	44	298411	
+vireya	47	46	0	Rhododendron edanoi
+vireya	48	46	0	Rhododendron jasminiflorum
+vireya	49	33	4097142	
+vireya	50	49	2138609	
+vireya	51	50	1082167	
+vireya	52	51	0	Rhododendron intranervatum
+vireya	53	51	0	Rhododendron polyanthemum
+vireya	54	50	1097602	
+vireya	55	54	0	Rhododendron taxifolium
+vireya	56	54	524792	
+vireya	57	56	0	Rhododendron radians
+vireya	58	56	0	Rhododendron ruttenii
+vireya	59	49	2303249	
+vireya	60	59	1128473	
+vireya	61	60	0	Rhododendron lagunculicarpum
+vireya	62	60	0	Rhododendron zollingeri
+vireya	63	59	1263958	
+vireya	64	63	0	Rhododendron williamsii
+vireya	65	63	644842	
+vireya	66	65	0	Rhododendron alternans
+vireya	67	65	343002	
+vireya	68	67	0	Rhododendron vanvuurenii
+vireya	69	67	162926	
+vireya	70	69	0	Rhododendron pudorinum
+vireya	71	69	0	Rhododendron rhodopus
+vireya	72	32	7762103	
+vireya	73	72	3992527	
+vireya	74	73	2001409	
+vireya	75	74	0	Rhododendron culminicola
+vireya	76	74	0	Rhododendron tuba
+vireya	77	73	2001409	
+vireya	78	77	0	Rhododendron lochiae
+vireya	79	77	0	Rhododendron saxifragoides
+vireya	80	72	4474443	
+vireya	81	80	0	Rhododendron superbum
+vireya	82	80	3237926	
+vireya	83	82	0	Rhododendron solitarium
+vireya	84	82	2349555	
+vireya	85	84	0	Rhododendron maius
+vireya	86	84	1701284	
+vireya	87	86	917528	
+vireya	88	87	480202	
+vireya	89	88	0	Rhododendron inconspicuum
+vireya	90	88	0	Rhododendron spondylophyllum
+vireya	91	87	464767	
+vireya	92	91	0	Rhododendron hyacinthosmum
+vireya	93	91	0	Rhododendron multinervium
+vireya	94	86	1368573	
+vireya	95	94	675712	
+vireya	96	95	0	Rhododendron carringtoniae
+vireya	97	95	0	Rhododendron leucogigas
+vireya	98	94	842068	
+vireya	99	98	480202	
+vireya	100	99	0	Rhododendron zoelleri
+vireya	101	99	282977	
+vireya	102	101	0	Rhododendron laetum
+vireya	103	101	147492	
+vireya	104	103	0	Rhododendron konori
+vireya	105	103	72032	
+vireya	106	105	0	Rhododendron loranthiflorum
+vireya	107	105	0	Rhododendron luraluense
+vireya	108	98	464767	
+vireya	109	108	0	Rhododendron goodenoughii
+vireya	110	108	282977	
+vireya	111	110	132057	
+vireya	112	111	0	Rhododendron commonae
+vireya	113	111	0	Rhododendron rubineiflorum
+vireya	114	110	178362	
+vireya	115	114	87467	
+vireya	116	115	0	Rhododendron christii
+vireya	117	115	42877	
+vireya	118	117	0	Rhododendron gracilentum
+vireya	119	117	0	Rhododendron leptanthum
+vireya	120	114	118337	
+vireya	121	120	0	Rhododendron baenitzianum
+vireya	122	120	72032	
+vireya	123	122	0	Rhododendron rarum
+vireya	124	122	42877	
+vireya	125	124	0	Rhododendron herzogii
+vireya	126	124	0	Rhododendron inundatum
