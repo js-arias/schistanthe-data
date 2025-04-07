@@ -1,8 +1,8 @@
 # phygeo project files
-# data save on: 2023-06-06T17:03:23-03:00
+# data save on: 2025-03-13T19:27:35+02:00
 dataset	path
 geomotion	muller-motion-360-5.tab
 landscape	muller-landscape-cao-paleomap-360-5.tab
-pixprior	model-pix-prior.tab
-points	rhodo-points-360.tab
+pixweight	model-pix-weights.tab
+ranges	rhodo-points-360.tab
 trees	rhodo-tree-360.tab

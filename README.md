@@ -75,18 +75,18 @@ as explained in Arias (2017).
 
 ### Landscape
 
-Key | Prior | Environment
---- | ----- | -----------
-  1 | 0.001 | oceanic plateaus
-  2 | 0.005 | continental shelf
-  3 | 1.000 | lowlands
-  4 | 1.000 | highlands
-  5 | 0.001 | ice sheets
+Key | Weight | Environment
+--- | ------ | -----------
+  1 |  0.001 | oceanic plateaus
+  2 |  0.005 | continental shelf
+  3 |  1.000 | lowlands
+  4 |  1.000 | highlands
+  5 |  0.001 | ice sheets
 
 - `landscape-key.tab`:
   This file contains the keys for the landscape features
   of the paleolandscape model.
-- `model-pix-prior.tab`:
+- `model-pix-weights.tab`:
   This file contains the definition of the pixel priors
   used in the analysis.
 
@@ -101,74 +101,87 @@ to perform an analysis.
 Maximum likelihood reconstruction
 was done with the command `diff ml` in `PhyGeo`.
 
-Bayesian estimates were first approximated
-by a simple integration of several values
-of the concentration parameter,
-assuming a uniform prior distribution.
-Then,
-the resulting posterior was approximated with a Gamma function.
-
 ## Results
 
 ### Maximum likelihood
 
 The maximum likelihood estimation
-of the concentration parameter was 150.0.
+of the concentration parameter was 99.21875
+(log Likelihood = -376.549583).
 
 ```bash
 # maximum likelihood estimation
 phygeo diff ml project-360.tab
 
-# stochastic mapping
-phygeo diff like -lambda 150 -o ml project-360.tab
+# conditional likelihoods for pixels at each node
+phygeo diff like -lambda 99.21875 -o ml project-360.tab
 ```
 
-- `ml-project-360.tab-vireya-150.000000x1000.tab`:
+Unfortunately,
+the file with the conditional likelihoods for each node
+(called `ml-project-360.tab-vireya-99.218750-down.tab`)
+is too large for this repository
+(more than 250 mb),
+so you must run `phygeo diff like`
+to get this file.
+
+With the conditional likelihoods
+we can make an estimate of the ancestral locations
+using an approximation of the stochastic mapping.
+Due to the large size of the resulting file
+(>50 mb),
+I put an example file in this repository
+(`pp-1k-vireya-99.218750x1000.tab`) using only 1000 particles,
+but all posterior analyzes were run with the stochastic mapping
+using 10000 particles
+(`pp-ml-vireya-99.218750x10000.tab`).
+
+```bash
+# stochastic mapping
+phygeo diff particles -p 10000 -i ml-project-360.tab-vireya-99.218750-down.tab -o pp-ml project-360.tab
+```
+
+- `pp-1k-vireya-99.218750x1000.tab`:
   This file contains the stochastic mapping of 1000 particles
   in the maximum likelihood reconstruction.
 
-### Bayesian estimation
-
-The posterior distribution of the concentration parameter,
-using a uniform prior,
-is approximated by a gamma function,
-with $\alpha$ = 75.75, $\beta$ = 0.5.
+Most of the time,
+we are interested on the reconstructions from this stochastic histories.
+while we can use the raw frequency of the particles at each node,
+it is preferable to smooth the results
+using an spherical KDE.
+Both options can be done with the command `phygeo diff freq`.
+Here I use a KDE with a lambda of 1000,
+that means that the final distribution will be quite concentrated
+and more similar to the using of the raw frequencies.
 
 ```bash
-# numerical integration
-phygeo diff integrate -max 300 -parts 100 project-360.tab > vireya-integrate-360.tab
-
-# sampling posterior for stochastic mapping
-phygeo diff integrate -distribution "gamma=75.75,0.5" -p 100 -o sample project-360.tab
+# KDE with lambda 1000
+phygeo diff freq -kde 1000 -i pp-ml-vireya-99.218750x10000.tab -o kde project-360.tab
 ```
 
-- `vireya-integrate-360.tab`:
-  This file contains the likelihood values
-  used to estimate the posterior distribution
-  of the concentration parameter.
-- `sample-project-360.tab-vireya-sampling-1000x100.zip`:
-  This zip file contains the stochastic mappings
-  of 1000 samples from the posterior,
-  with 100 particles per sample.
+- `kde-project-360.tab-pp-ml-vireya-99.218750x10000.tab.tab`
+  This file contains the frequency of the stochastic maps
+  smoothed with a spherical normal KDE using a lambda of 1000.
 
-The 95% of the posterior sample
-(based on a spherical normal KDE,
-using lambda 1000)
-for each reconstruction is given in the following directories:
+The 95% of the empirical posterior for each node
+(i.e., the "up-pass" pixel probabilities conditioned by the maximum likelihood estimation)
+are stored as pictures in the following directories:
 
 - `recs-95`:
   the reconstructions for each node.
 - `unrot-95`:
   the reconstructions for each node, rotated to the current geography.
+  We use a map with current borders for the reference.
 
 The file `vireya-tree.svg` contains a tree with the node IDs.
 
 ```bash
 # node reconstructions
-phygeo diff map -c 1440 -key landscape-key.tab -gray -kde 1000 -i sample-project.tab-vireya-sampling-1000x100.tab -o "recs-95/r" project-360.tab
+phygeo diff map -c 1440 -key landscape-key.tab -gray -i kde-project-360.tab-pp-ml-vireya-99.218750x10000.tab.tab -o "recs-95/r" project-360.tab
 
 # node reconstructions (unrotated)
-phygeo diff map -c 1440 -key landscape-key.tab -gray -kde 1000 -i sample-project.tab-cireya-sampling-1000x100.tab -unrot -o "unrot-95/u" project-360.tab
+phygeo diff map -c 1440 -key landscape-key.tab -gray -unrot -contour world_location_map-black_lines-1440.png -i kde-project-360.tab-pp-ml-vireya-99.218750x10000.tab.tab -o "unrot-95/u" project-360.tab 
 ```
 
 ## References
